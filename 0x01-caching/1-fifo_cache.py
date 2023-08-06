@@ -5,13 +5,18 @@ from base_caching import BaseCaching
 
 
 class FIFOCache(BaseCaching):
-    '''FIFOCache class'''
+    '''
+    FIFOCache class
+    '''
     def __init__(self):
         '''An init function'''
         self.arr = []
         super().__init__()
 
     def put(self, key, item):
+        '''
+        put key in cache
+        '''
         if (key is not None and item is not None):
             # maintain length of cache
             if len(self.cache_data) < BaseCaching.MAX_ITEMS:
