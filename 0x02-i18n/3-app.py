@@ -32,10 +32,13 @@ def hello_world():
 @babel.localeselector
 def get_locale():
     '''get best locale'''
+    if (request.args.get('locale') in ['fr', 'en']):
+        return request.args.get('locale')
+
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-# babel = Babel(app)
+# babel = Babel(app, locale_selector=get_locale)
 
 if __name__ == '__main__':
     app.run()
