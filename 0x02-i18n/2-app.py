@@ -32,7 +32,7 @@ def hello_world():
 @babel.localeselector
 def get_locale():
     '''get best locale'''
-    return request.acccept_languages.best_match(app.config['LANGUAGES'])
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 if __name__ == '__main__':
