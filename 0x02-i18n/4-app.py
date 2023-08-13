@@ -26,12 +26,15 @@ def hello_world():
     '''
     render a simple hello world page
     '''
-    return render_template('3-index.html')
+    return render_template('4-index.html')
 
 
 @babel.localeselector
 def get_locale():
     '''get best locale'''
+    if (request.args.get('locale') in ['fr', 'en']):
+        return request.args.get('locale')
+
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
