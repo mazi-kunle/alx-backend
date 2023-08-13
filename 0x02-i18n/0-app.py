@@ -9,6 +9,9 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
+    '''
+    render a simple hello world page
+    '''
     return render_template('0-index.html')
 
 
