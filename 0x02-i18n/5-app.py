@@ -27,6 +27,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 @app.route('/')
 def hello_world():
     '''
@@ -46,8 +47,8 @@ def get_locale():
 
 def get_user():
     '''mock login'''
-    login_details = int(request.args.get('login_as'))
-    if (login_details is not None and login_details in users):
+    login_details = request.args.get('login_as')
+    if (login_details):
         return users.get(int(login_details))
 
     return None
