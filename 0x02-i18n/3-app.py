@@ -7,6 +7,7 @@ from flask_babel import Babel
 
 
 app = Flask(__name__)
+babel = Babel(app)
 
 
 class Config(object):
@@ -28,12 +29,13 @@ def hello_world():
     return render_template('3-index.html')
 
 
+@babel.localeselector
 def get_locale():
     '''get best locale'''
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
-babel = Babel(app, locale_selector=get_locale)
+# babel = Babel(app)
 
 if __name__ == '__main__':
     app.run()
